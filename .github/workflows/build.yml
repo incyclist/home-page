@@ -1,0 +1,37 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  package:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Docker Build and Push
+      run : |
+        docker build . -t docker.incyclist.com/incyclist/home-page:latest
+        docker push  docker.incyclist.com/incyclist/home-page:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: package
+    
+    steps:
+    - uses: actions/checkout@v4
+    - name: helm deploy
+      uses: WyriHaximus/github-action-helm3@v3
+      with:
+        exec: helm upgrade --install home-page ./helm -f ./helm/values.yaml --wait --atomic -n incyclist    
+        kubeconfig: '${{ secrets.KUBECONFIG }}'
+         
