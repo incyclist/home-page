@@ -34,15 +34,10 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          env:
-            - name: NODE_ENV
-              value: "production"
-            - name: PORT
-              value: "3000"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 80
               protocol: TCP
           {{- with .Values.server.volumeMounts }}
           volumeMounts:
@@ -51,11 +46,11 @@ spec:
 
           livenessProbe:
             httpGet:
-              path: /probe
+              path: /index.html
               port: http
           readinessProbe:
             httpGet:
-              path: /probe
+              path: /index.html
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
