@@ -21,7 +21,7 @@ server:
   ## If not set, it will be autofilled with the cluster host.
   ## Host shoud be just the hostname.
   ##
-  host: "beta.incyclist.com"
+  host: incyclist.com
 
   ## protocol should be http or https
   protocol: https
@@ -34,13 +34,14 @@ ingress:
     cert-manager.io/issue-temporary-certificate: "true" 
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  hosts: 
-  -   beta.incyclist.com
+    
+  # hosts: 
+  # -   incyclist.com
 
-  tls: 
-  - hosts:
-    - beta.incyclist.com
-    secretName: home-page-tls
+  # tls: 
+  # - hosts:
+  #   - incyclist.com
+  #   secretName: home-page-tls
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious

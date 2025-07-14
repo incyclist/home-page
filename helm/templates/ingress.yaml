@@ -37,9 +37,39 @@ spec:
                 name: {{ $fullName }}
                 port:
                   number: {{ $httpPort }}
+  {{- else }}
+    - host: {{ .Values.server.host  }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: {{ $fullName }}
+                port:
+                  number: {{ $httpPort }}
+    - host: "www.{{ .Values.server.host  }}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: {{ $fullName }}
+                port:
+                  number: {{ $httpPort }}
+
   {{- end -}}
+
   {{- if .Values.ingress.tls }}
   tls:
 {{ toYaml .Values.ingress.tls | indent 4 }}
+  {{- else }}
+  tls:
+    - hosts: 
+      - {{ .Values.server.host }}
+      - "www.{{ .Values.server.host }}"
+      secretName: home-secret
   {{- end -}}
+    
 {{- end -}} 
