@@ -102,37 +102,133 @@
 
     img { max-width: 100%; }
 
-    /* ---------- header (shared with the download page) ---------- */
-    header { background: #fff; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-
-    .header-bar {
-      z-index: 4;
+    /* ---------- shared page shell: header, nav, footer ---------- */
+    .ic-header {
       position: relative;
-      line-height: 4;
-      min-width: 100%;
-      max-width: 100%;
-      padding: 1em 35px;
+      z-index: 40;
+      background: #fff;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 35px;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-right: 1em;
+    .ic-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ic-brand img { display: block; width: 132px; height: auto; }
+    .ic-brand .ic-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      letter-spacing: .02em;
       font-size: 20px;
     }
 
-    .logo-container img { display: block; }
-    .site-title { font-weight: 600; text-transform: uppercase; color: #3a3a3a; letter-spacing: .02em; }
+    .ic-nav { display: flex; gap: 35px; align-items: center; }
+    .ic-nav a {
+      text-decoration: none;
+      color: #00000080;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .ic-nav a:hover, .ic-nav a.active { color: #8dc100; }
 
-    .navigation-container { text-align: right; padding: 0 35px; }
-    nav { display: flex; gap: 35px; align-items: center; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: #00000080; font-weight: 500; font-size: 15px; }
-    nav a:hover, nav a.active { color: var(--green); }
+    /* menu toggle: a real checkbox kept invisible over the burger, so the menu
+       opens without script and is still reachable by keyboard */
+    .ic-nav-toggle { display: none; }
+    .ic-burger { display: none; }
+
+    @media (max-width: 860px) {
+      .ic-header { padding: 10px 16px; flex-wrap: wrap; }
+      .ic-brand img { width: 108px; }
+      .ic-brand .ic-title { font-size: 17px; }
+
+      .ic-burger {
+        display: block;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #dd9933;
+        cursor: pointer;
+        flex: 0 0 44px;
+      }
+      .ic-burger span {
+        position: absolute;
+        left: 12px;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+      }
+      .ic-burger span:nth-child(1) { top: 16px; }
+      .ic-burger span:nth-child(2) { top: 21px; }
+      .ic-burger span:nth-child(3) { top: 26px; }
+
+      .ic-nav-toggle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .ic-nav-toggle:focus-visible + .ic-burger { outline: 2px solid #8dc100; outline-offset: 2px; }
+
+      .ic-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+        margin-top: 10px;
+      }
+      .ic-nav-toggle:checked ~ .ic-nav { display: flex; }
+      .ic-nav a { width: 100%; padding: 12px 2px; font-size: 16px; }
+      .ic-nav a + a { border-top: 1px solid rgba(0, 0, 0, .06); }
+    }
+
+    .ic-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 20px;
+      flex-wrap: nowrap;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, .15);
+    }
+
+    .ic-footer .ic-copy { color: #ddd; font-size: 14px; line-height: 24px; white-space: nowrap; }
+    .ic-footer .ic-social { display: flex; gap: 20px; align-items: center; }
+    .ic-footer .ic-social a {
+      color: rgba(255, 255, 255, .75);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: color .14s ease;
+    }
+    .ic-footer .ic-social a:hover { color: #fff; }
+    .ic-footer .ic-social svg { display: block; }
+
+    @media (max-width: 520px) {
+      .ic-footer { padding: 10px 14px; }
+      .ic-footer .ic-copy { font-size: 12px; }
+      .ic-footer .ic-social { gap: 16px; }
+    }
 
     /* ---------- generic section furniture ---------- */
     main { flex: 1 0 auto; width: 100%; padding-bottom: 58px; }
@@ -450,38 +546,6 @@
     .about-teaser { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: center; }
     .about-teaser img { border-radius: 10px; display: block; }
 
-    /* ---------- footer (same look as the download page, not fixed) ---------- */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 30;
-      background: #000;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 12px 20px;
-      font-size: .95rem;
-      flex-wrap: nowrap;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, .15);
-    }
-
-    footer .left { color: #ddd; font-size: .92rem; }
-    footer .right { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-    footer .right { gap: 20px; }
-    footer .right a {
-      color: rgba(255, 255, 255, .75);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      transition: color .14s ease;
-    }
-    footer .right a:hover { color: #fff; }
-    footer .right svg { display: block; }
-
     /* ---------- responsive ---------- */
     @media (max-width: 980px) {
       .news-grid, .cards, .spec-grid { grid-template-columns: repeat(2, 1fr); }
@@ -495,37 +559,27 @@
       .news-grid, .cards, .spec-grid, .shot-grid { grid-template-columns: 1fr; }
       .mobile-shots, .mobile-highlights { grid-template-columns: 1fr; }
       .hero { min-height: 0; padding: 72px 18px; }
-      .header-bar { padding: 12px 14px; line-height: 2; }
-      .navigation-container { padding: 0; text-align: left; }
-      nav { gap: 18px; }
-      .logo-container img { height: 44px; width: auto; }
-      footer { padding: 10px 14px; font-size: .85rem; }
-      footer .left { font-size: .8rem; }
-      footer .right { gap: 16px; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-bar">
-      <div class="logo-container">
-        <span><img width="200" height="66"
-            src="content/uploads/2020/04/cropped-f855ee7c-b381-40a6-ab04-df48c7626f75_200x200.png"
-            alt="Incyclist logo"></span>
-        <span><div class="site-title">Incyclist</div></span>
-      </div>
+  <header class="ic-header">
+    <a class="ic-brand" href="./">
+      <img src="content/uploads/2020/04/cropped-f855ee7c-b381-40a6-ab04-df48c7626f75_200x200.png" width="200" height="66" alt="Incyclist logo">
+      <span class="ic-title">Incyclist</span>
+    </a>
 
-      <div class="navigation-container">
-        <nav aria-label="Main navigation">
-          <a href="./" class="active" aria-current="page">Home</a>
-          <a href="about/">About</a>
-          <a href="faq/">FAQ</a>
-          <a href="privacy/">Privacy</a>
-          <a href="download/">Download</a>
-        </nav>
-      </div>
-    </div>
+    <input class="ic-nav-toggle" type="checkbox" id="ic-nav-toggle" aria-label="Open menu">
+    <span class="ic-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+
+    <nav class="ic-nav" aria-label="Main navigation">
+      <a href="./" class="active" aria-current="page">Home</a>
+      <a href="about/">About</a>
+      <a href="faq/">FAQ</a>
+      <a href="privacy/">Privacy</a>
+      <a href="download/">Download</a>
+    </nav>
   </header>
 
   <main>
@@ -894,9 +948,9 @@
 
   </main>
 
-  <footer>
-    <div class="left">Copyright © 2026 Incyclist</div>
-    <div class="right">
+  <footer class="ic-footer">
+    <div class="ic-copy">Copyright © 2026 Incyclist</div>
+    <div class="ic-social">
       <a href="https://www.strava.com/clubs/1029407" target="_blank" rel="noopener" aria-label="Strava" title="Strava"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="18" height="18" fill="currentColor" role="img" aria-hidden="true" focusable="false"><g transform="translate(0,448) scale(1,-1)"><path d="M158.4 448l150.199 -292h-88.5l-61.6992 116.1l-62.2002 -116.1h-89.2002zM308.6 156h67.6006l-111.5 -220l-112.2 220h67.5996l44.6006 -88.2002z"/></g></svg></a>
       <a href="https://bsky.app/profile/incyclist.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky" title="Bluesky"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" role="img" aria-hidden="true" focusable="false"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg></a>
       <a href="mailto:info@incyclist.com" aria-label="Email" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" fill="currentColor" role="img" aria-hidden="true" focusable="false"><g transform="translate(0,448) scale(1,-1)"><path d="M502.3 257.2c3.90039 3.09961 9.7002 0.200195 9.7002 -4.7002v-204.5c0 -26.5 -21.5 -48 -48 -48h-416c-26.5 0 -48 21.5 -48 48v204.4c0 5 5.7002 7.7998 9.7002 4.69922c22.3994 -17.3994 52.0996 -39.5 154.1 -113.6
