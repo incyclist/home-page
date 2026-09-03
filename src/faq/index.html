@@ -16,13 +16,13 @@
 	<meta property="og:site_name" content="Incyclist">
 	<meta property="og:url" content="https://incyclist.com/faq/">
 	<meta property="og:title" content="Incyclist FAQ">
-	<meta property="og:description" content="Answers to common Incyclist questions: Windows SmartScreen warnings, uploading activities to Strava, and the macOS keychain prompt.">
+	<meta property="og:description" content="Answers to common Incyclist questions: running Incyclist on Linux, creating your own ride videos, uploading activities to Strava, Windows SmartScreen warnings and the macOS keychain prompt.">
 	<meta property="og:image" content="https://incyclist.com/assets/og-incyclist.jpg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Incyclist FAQ">
-	<meta name="twitter:description" content="Answers to common Incyclist questions: Windows SmartScreen warnings, uploading activities to Strava, and the macOS keychain prompt.">
+	<meta name="twitter:description" content="Answers to common Incyclist questions: running Incyclist on Linux, creating your own ride videos, uploading activities to Strava, Windows SmartScreen warnings and the macOS keychain prompt.">
 	<meta name="twitter:image" content="https://incyclist.com/assets/og-incyclist.jpg">
 	<style>
 		img:is([sizes="auto" i], [sizes^="auto," i]) {
@@ -3900,6 +3900,63 @@ flexibility(document.documentElement);
 																								launch of the app unless
 																								you click on "Always
 																								Allow"</p>
+																						</div>
+																					</div>
+																				</div>
+																			</li>
+																			<li id="linux"
+																				class="uabb-info-list-item info-list-item-dynamic3">
+																				<div
+																					class="uabb-info-list-content-wrapper uabb-info-list-left">
+																					<div
+																						class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic3">
+																						<h6
+																							class="uabb-info-list-title">
+																							How do I run Incyclist on Linux?</h6>
+																						<div
+																							class="uabb-info-list-description uabb-text-editor info-list-description-dynamic3">
+																							<p>Incyclist ships as an AppImage, for x86-64 and for ARM64. Download it from the <a href="../download/">download page</a>, make the file executable and run it &#8212; there is no installer.</p>
+																							<p>Bluetooth trainers, power meters and heart rate monitors are supported directly, and the app runs as a normal user. For ANT+ devices you need an ANT+ dongle.</p>
+																							<p>The details differ between distributions. Fred van Gestel maintains a guide covering several Linux flavours &#8212; <a href="https://cycling.vangestel.online/indoor/faq/incyclist-on-linux/index.html" target="_blank" rel="noopener">check here for more details</a>.</p>
+																						</div>
+																					</div>
+																				</div>
+																			</li>
+																			<li id="own-video"
+																				class="uabb-info-list-item info-list-item-dynamic4">
+																				<div
+																					class="uabb-info-list-content-wrapper uabb-info-list-left">
+																					<div
+																						class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic4">
+																						<h6
+																							class="uabb-info-list-title">
+																							How can I create my own video?</h6>
+																						<div
+																							class="uabb-info-list-description uabb-text-editor info-list-description-dynamic4">
+																							<p>Incyclist can ride any video that is paired with a GPX track, so you can turn your own footage into a route. In outline: record the ride as video and as a GPX track, smooth the GPX, convert the video, and describe the pairing in a small XML file that you then import.</p>
+																							<p>Incyclist supports every video encoding that Chromium supports. H264 works everywhere; H265 and AV1 have limitations on some platforms, which matters if you intend to share your video with other riders rather than just ride it yourself.</p>
+																							<p>Fred van Gestel has written a step-by-step walkthrough of the whole process &#8212; <a href="https://cycling.vangestel.online/indoor/faq/video-production/index.html" target="_blank" rel="noopener">check here for more details</a>. Importing existing RLV, EPM and Tacx files is covered in the <a href="../assets/Incyclist%20Manual.pdf">Incyclist manual</a>.</p>
+																						</div>
+																					</div>
+																				</div>
+																			</li>
+																			<li id="where-to-get-videos"
+																				class="uabb-info-list-item info-list-item-dynamic5">
+																				<div
+																					class="uabb-info-list-content-wrapper uabb-info-list-left">
+																					<div
+																						class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic5">
+																						<h6
+																							class="uabb-info-list-title">
+																							Where can I get videos to ride?</h6>
+																						<div
+																							class="uabb-info-list-description uabb-text-editor info-list-description-dynamic5">
+																							<p>Incyclist rides real world videos (RLVs), and a number of riders and shops publish them. The sites below are run by other people, not by Incyclist &#8212; they are listed because riders find them useful, not as a recommendation or endorsement.</p>
+																							<p><strong>Free downloads</strong></p>
+																							<ul><li><a href="https://cycling.vangestel.online/indoor/videos/" target="_blank" rel="noopener">cycling.vangestel.online</a> &#8212; videos by Fred van Gestel</li><li><a href="https://meisterlampe0082.ebeling-hoppe.de/" target="_blank" rel="noopener">meisterlampe0082.ebeling-hoppe.de</a></li><li><a href="https://www.vermail.nl/RLVs/" target="_blank" rel="noopener">vermail.nl</a></li></ul>
+																							<p><strong>Paid downloads</strong></p>
+																							<ul><li><a href="https://www.cycle-in-motion.de/" target="_blank" rel="noopener">cycle-in-motion.de</a></li><li><a href="https://www.reallifevideo.de/" target="_blank" rel="noopener">reallifevideo.de</a></li><li><a href="https://www.real-life-video.nl/" target="_blank" rel="noopener">real-life-video.nl</a></li><li><a href="https://www.bikelabshop.it/en/" target="_blank" rel="noopener">bikelabshop.it</a></li></ul>
+																							<p>Riders also swap videos and routes in the <a href="https://www.strava.com/clubs/1029407" target="_blank" rel="noopener">Incyclist Strava club</a>. If a link here is dead, or you publish videos yourself and would like to be listed, <a href="mailto:info@incyclist.com">let me know</a>.</p>
 																						</div>
 																					</div>
 																				</div>
