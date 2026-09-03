@@ -326,6 +326,7 @@
 
     .card p { margin: 0; font-size: .95rem; color: var(--ink-soft); }
     .card p + p { margin-top: 10px; }
+    .card em { color: rgba(0, 0, 0, .45); font-style: italic; }
 
     /* ---------- screenshots ---------- */
     .shots { background: #111; color: #fff; }
@@ -473,8 +474,9 @@
         <div class="center">
           <p class="eyebrow">New</p>
           <h2>Now on phone and tablet</h2>
-          <p class="lead">Incyclist is available for Android and iOS — the same rides, the same
-            devices, the same workouts, on whatever screen sits on your handlebars.</p>
+          <p class="lead">Incyclist is available for Android and iOS: ride real world videos and
+            GPX routes, with the same workouts and the same activity history, on whatever screen
+            sits on your handlebars.</p>
         </div>
 
         <div class="mobile-shots">
@@ -493,7 +495,7 @@
               width="1400" height="647" loading="lazy" decoding="async"
               sizes="(max-width: 760px) 100vw, (max-width: 980px) 45vw, 460px"
               srcset="assets/screenshots/mobile-ride-phone-700.jpg 700w, assets/screenshots/mobile-ride-phone-1400.jpg 1400w">
-            <figcaption>The same ride on a phone</figcaption>
+            <figcaption>A GPX route ridden on a phone</figcaption>
           </figure>
           <figure>
             <img src="assets/screenshots/mobile-workouts-1400.jpg"
@@ -507,12 +509,12 @@
         </div>
 
         <ul class="mobile-highlights">
-          <li>Satellite view with live position and camera rotation</li>
+          <li>Street View and Satellite View, with live position and camera rotation</li>
           <li>See other cyclists on your route in real time</li>
           <li>Race against your own previous rides</li>
           <li>Change load or gear with a swipe</li>
           <li>Audio cues on every workout step change</li>
-          <li>Pairs with the same ANT+ and Bluetooth devices</li>
+          <li>Pairs with Bluetooth and Direct Connect (WiFi) devices</li>
         </ul>
 
         <div class="store-badges">
@@ -617,6 +619,7 @@
             <h3>Free ride</h3>
             <p>Search for any location in the world and start riding there. At every junction you
               choose where to go — no downloads, no route hunting, just go.</p>
+            <p><em>Desktop only for now.</em></p>
           </article>
 
           <article class="card">
@@ -724,7 +727,8 @@
           <div class="spec">
             <h3>Supported devices</h3>
             <ul>
-              <li>ANT+ smart trainers (FE-C), power meters, cadence and speed sensors, heart rate monitors</li>
+              <li>ANT+ smart trainers (FE-C), power meters, cadence and speed sensors, heart rate
+                monitors — desktop only</li>
               <li>Bluetooth smart trainers (FTMS, Wahoo and Tacx FE-C over BLE), power meters and heart rate monitors</li>
               <li>Direct Connect (WiFi) smart trainers</li>
               <li>Zwift Play and Zwift Click controllers</li>
@@ -738,7 +742,7 @@
             <ul>
               <li><strong>Desktop:</strong> Windows 10 or 11, macOS (Big Sur or newer, Intel and Apple
                 Silicon), or Linux on x86-64 or ARM64 (tested on Ubuntu 20 and newer)</li>
-              <li><strong>Mobile:</strong> Android or iOS phone or tablet</li>
+              <li><strong>Mobile:</strong> Android 7.0 or newer, or iOS / iPadOS 15.5 or newer</li>
               <li><strong>For ANT+:</strong> an ANT+ dongle to pair with your trainer — desktop only</li>
               <li><strong>For Bluetooth:</strong> nothing extra, on any of the five platforms</li>
             </ul>
