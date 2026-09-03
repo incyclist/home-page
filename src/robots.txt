@@ -1,4 +1,6 @@
 User-agent: *
 Sitemap: https://incyclist.com/sitemap.xml
-Disallow: /content
-Disallow: /includes
+
+# Nothing to hide: the pages are hand-written HTML and every asset they load
+# should stay crawlable so search engines can render them.
+Disallow:
