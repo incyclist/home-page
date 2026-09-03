@@ -1,4 +1,8 @@
 User-agent: *
 Sitemap: https://incyclist.com/sitemap.xml
-Disallow: /content
-Disallow: /includes
+
+# Search engines render pages before ranking them, so stylesheets, scripts and
+# images have to stay crawlable. Only the theme's PHP-era leftovers are blocked.
+Disallow: /content/plugins/
+Disallow: /content/themes/*/inc/
+Disallow: /includes/js/

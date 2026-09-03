@@ -8,13 +8,71 @@
   <meta name="robots" content="max-image-preview:large" />
   <meta name="description"
     content="Incyclist is a free indoor cycling app for Windows, macOS, Linux, Android and iOS. Ride real-world videos, any GPX route or explore freely, with ANT+, Bluetooth and Direct Connect trainers.">
-  <link rel="canonical" href="https://incyclist.com">
+  <link rel="canonical" href="https://incyclist.com/">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="content/uploads/2020/04/cropped-incyclist-icon-180x180.png">
   <title>Incyclist – Explore the world on your indoor trainer</title>
 
-  <link rel='stylesheet' id='astra-theme-css-css'
-    href='content/themes/astra/assets/css/minified/style-flex.min.css?ver=4.11.3' media='all' />
+  <!-- the hero background is the LCP element and CSS-referenced, so the preload scanner cannot find it -->
+  <link rel="preload" as="image" href="assets/hero-san-boldo-1920.jpg" media="(min-width: 1201px)">
+  <link rel="preload" as="image" href="assets/hero-san-boldo-1200.jpg" media="(max-width: 1200px)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incyclist">
+  <meta property="og:url" content="https://incyclist.com/">
+  <meta property="og:title" content="Incyclist – Explore the world on your indoor trainer">
+  <meta property="og:description"
+    content="A free indoor cycling app for Windows, macOS, Linux, Android and iOS. Ride real world videos, any GPX route, or explore freely — with ANT+, Bluetooth and Direct Connect trainers.">
+  <meta property="og:image" content="https://incyclist.com/assets/og-incyclist.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A real world video ride in Incyclist, with live data and route map">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Incyclist – Explore the world on your indoor trainer">
+  <meta name="twitter:description"
+    content="A free indoor cycling app for Windows, macOS, Linux, Android and iOS. Ride real world videos, any GPX route, or explore freely.">
+  <meta name="twitter:image" content="https://incyclist.com/assets/og-incyclist.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Incyclist",
+    "url": "https://incyclist.com/",
+    "applicationCategory": "SportsApplication",
+    "applicationSubCategory": "Indoor cycling",
+    "description": "A free indoor cycling app. Ride real world videos, any GPX route, or explore freely, with ANT+, Bluetooth and Direct Connect smart trainers.",
+    "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux, Android 7.0+, iOS 15.5+",
+    "image": "https://incyclist.com/assets/og-incyclist.jpg",
+    "screenshot": [
+      "https://incyclist.com/content/uploads/2024/11/menglonnais.jpg",
+      "https://incyclist.com/content/uploads/2024/11/workout.jpg",
+      "https://incyclist.com/assets/screenshots/mobile-ride-tablet-1400.jpg"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "downloadUrl": "https://incyclist.com/download/index.html",
+    "featureList": [
+      "Ride real world videos (RLV) in EPM, Tacx PGMF and KWT formats",
+      "Ride any GPX route in Street View, Satellite View or Map View",
+      "Free ride anywhere in the world",
+      "Structured workouts, with a built-in library, Zwift ZWO import and intervals.icu sync",
+      "See other riders on the same route in real time",
+      "Race against your own previous rides",
+      "Virtual shifting"
+    ],
+    "sameAs": [
+      "https://play.google.com/store/apps/details?id=com.incyclist.app",
+      "https://apps.apple.com/app/incyclist/id6761335538",
+      "https://github.com/incyclist",
+      "https://bsky.app/profile/incyclist.bsky.social"
+    ]
+  }
+  </script>
 
   <style>
     /* ---------- tokens + reset ---------- */
@@ -134,9 +192,17 @@
       color: #fff;
       background-image:
         linear-gradient(169deg, rgba(0, 0, 0, .42) 0%, rgba(0, 0, 0, .9) 87%),
-        url(content/uploads/2020/04/san-boldo-pass-4820576_1920.jpg);
+        url(assets/hero-san-boldo-1920.jpg);
       background-size: cover;
       background-position: center;
+    }
+
+    @media (max-width: 1200px) {
+      .hero {
+        background-image:
+          linear-gradient(169deg, rgba(0, 0, 0, .42) 0%, rgba(0, 0, 0, .9) 87%),
+          url(assets/hero-san-boldo-1200.jpg);
+      }
     }
 
     .hero .wrap { max-width: 820px; text-align: center; }
@@ -433,11 +499,11 @@
 
       <div class="navigation-container">
         <nav aria-label="Main navigation">
-          <a href="index.html" class="active" aria-current="page">Home</a>
-          <a href="about/index.html">About</a>
-          <a href="faq/index.html">FAQ</a>
-          <a href="privacy/index.html">Privacy</a>
-          <a href="download/index.html">Download</a>
+          <a href="./" class="active" aria-current="page">Home</a>
+          <a href="about/">About</a>
+          <a href="faq/">FAQ</a>
+          <a href="privacy/">Privacy</a>
+          <a href="download/">Download</a>
         </nav>
       </div>
     </div>
@@ -454,7 +520,7 @@
           on your computer, your phone or your tablet.</p>
 
         <div class="btn-row">
-          <a class="btn" href="download/index.html">Download Incyclist</a>
+          <a class="btn" href="download/">Download Incyclist</a>
           <a class="btn ghost" href="#features">See what it does</a>
         </div>
 
@@ -550,7 +616,7 @@
             <p>Linux now joins Windows, macOS, Android and iOS in supporting the full range of
               Bluetooth fitness devices — started as a normal user, like every other app.</p>
             <div class="spacer"></div>
-            <a class="btn" href="download/index.html">Get the Linux AppImage</a>
+            <a class="btn" href="download/">Get the Linux AppImage</a>
           </article>
 
           <article class="news-card">
@@ -754,7 +820,7 @@
             <h3>Installation</h3>
             <ol>
               <li>Windows, macOS and Linux: grab the installer or AppImage from the
-                <a href="download/index.html">download page</a>.</li>
+                <a href="download/">download page</a>.</li>
               <li>Android and iOS: install from
                 <a href="https://play.google.com/store/apps/details?id=com.incyclist.app" target="_blank"
                   rel="noopener">Google Play</a> or the
@@ -763,7 +829,7 @@
               <li>Launch the app — it pairs with your devices automatically.</li>
               <li>For anything else, see the
                 <a href="assets/Incyclist%20Manual.pdf">Incyclist manual</a> or the
-                <a href="faq/index.html">FAQ</a>.</li>
+                <a href="faq/">FAQ</a>.</li>
             </ol>
           </div>
 
@@ -780,7 +846,7 @@
           app you are welcome to donate an amount of your choice, but donating buys you nothing extra:
           it is entirely voluntary.</p>
         <div class="btn-row" style="justify-content:center">
-          <a class="btn" href="download/index.html">Download Incyclist</a>
+          <a class="btn" href="download/">Download Incyclist</a>
         </div>
       </div>
     </section>
@@ -797,7 +863,7 @@
           <p class="lead">Riding indoors, I always wanted to discover new places without first spending
             an evening hunting for routes. In Incyclist you can ride anywhere in the world and simply
             decide at each crossing where to go — just like you would outside.</p>
-          <a class="btn" href="about/index.html">Read more</a>
+          <a class="btn" href="about/">Read more</a>
         </div>
         <div>
           <img src="content/uploads/2020/04/incyclist-miami-beach.jpg" alt="Riding Incyclist along Miami Beach"
