@@ -1,0 +1,226 @@
+    /* ---------- page content ---------- */
+    :root { --green: #8dc100; --orange: #dd9933; --ink: rgba(0,0,0,.78); --ink-soft: rgba(0,0,0,.6); --panel: #fafafa; --line: rgba(0,0,0,.08); }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    img { max-width: 100%; height: auto; }
+
+    main { flex: 1 0 auto; width: 100%; padding-bottom: 58px; }
+
+    .page-banner {
+      position: relative;
+      color: #fff;
+      padding: 74px 20px;
+      background-size: cover;
+      background-position: center;
+    }
+    .page-banner .wrap { position: relative; }
+    .page-banner .eyebrow { color: var(--green); }
+    .page-banner h1 {
+      font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+      line-height: 1.14;
+      margin: 0;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+    }
+
+    .wrap { width: 100%; max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0 0 12px;
+    }
+
+    section { padding: 60px 20px; }
+
+    h2 {
+      font-size: 1.6rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      margin: 34px 0 10px;
+      color: #2f2f2f;
+    }
+
+    p { margin: 0 0 16px; color: var(--ink-soft); }
+    ul, ol { margin: 0 0 16px; padding-left: 1.2em; color: var(--ink-soft); }
+    li { margin-bottom: 8px; }
+    a { color: #6f9800; }
+    a:hover { color: var(--orange); }
+    strong { color: var(--ink); }
+
+    .lede { font-size: 1.05rem; }
+    .meta { font-size: .9rem; color: var(--ink-soft); margin-bottom: 26px; }
+
+    .page-banner {
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.78) 100%),
+        url(../content/uploads/2020/01/about-us-bg.jpg);
+    }
+    .about-shot { margin: 34px 0 0; }
+    .about-shot img { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .about-shot figcaption { margin-top: 10px; font-size: .88rem; color: var(--ink-soft); }
+
+    /* ---------- shared page shell: header, nav, footer ---------- */
+    .ic-skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      background: #8dc100;
+      color: #fff;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .ic-skip:focus { left: 0; }
+
+    .ic-header {
+      position: relative;
+      z-index: 40;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 35px;
+    }
+
+    .ic-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ic-brand img { display: block; width: 132px; height: auto; }
+    .ic-brand .ic-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      letter-spacing: .02em;
+      font-size: 20px;
+    }
+
+    .ic-nav { display: flex; gap: 35px; align-items: center; }
+    .ic-nav a {
+      text-decoration: none;
+      color: #00000080;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .ic-nav a:hover, .ic-nav a.active { color: #8dc100; }
+
+    /* menu toggle: a real checkbox kept invisible over the burger, so the menu
+       opens without script and is still reachable by keyboard */
+    .ic-nav-toggle { display: none; }
+    .ic-burger { display: none; }
+
+    @media (max-width: 860px) {
+      .ic-header { padding: 10px 16px; flex-wrap: wrap; }
+      .ic-brand img { width: 108px; }
+      .ic-brand .ic-title { font-size: 17px; }
+
+      .ic-burger {
+        display: block;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #dd9933;
+        cursor: pointer;
+        flex: 0 0 44px;
+      }
+      .ic-burger span {
+        position: absolute;
+        left: 12px;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+      }
+      .ic-burger span:nth-child(1) { top: 16px; }
+      .ic-burger span:nth-child(2) { top: 21px; }
+      .ic-burger span:nth-child(3) { top: 26px; }
+
+      .ic-nav-toggle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .ic-nav-toggle:focus-visible + .ic-burger { outline: 2px solid #8dc100; outline-offset: 2px; }
+
+      .ic-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+        margin-top: 10px;
+      }
+      .ic-nav-toggle:checked ~ .ic-nav { display: flex; }
+      .ic-nav a { width: 100%; padding: 12px 2px; font-size: 16px; }
+      .ic-nav a + a { border-top: 1px solid rgba(0, 0, 0, .06); }
+    }
+
+    .ic-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 20px;
+      flex-wrap: nowrap;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, .15);
+    }
+
+    .ic-footer .ic-copy { color: #ddd; font-size: .92rem; white-space: nowrap; }
+    .ic-footer .ic-social { display: flex; gap: 20px; align-items: center; }
+    .ic-footer .ic-social a {
+      color: rgba(255, 255, 255, .75);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: color .14s ease;
+    }
+    .ic-footer .ic-social a:hover { color: #fff; }
+    .ic-footer .ic-social svg { display: block; }
+
+    @media (max-width: 520px) {
+      .ic-footer { padding: 10px 14px; }
+      .ic-footer .ic-copy { font-size: .78rem; }
+      .ic-footer .ic-social { gap: 16px; }
+    }
