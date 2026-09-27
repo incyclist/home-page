@@ -90,9 +90,9 @@ a:hover {
   color:#fff
 }
 .ic-nav .nav-download:hover {
-  background:var(--orange);
-  color:#182014;
-  border-color:var(--orange)
+  background:var(--green);
+  color:#13200b;
+  border-color:var(--green)
 }
 main {
   padding:0;
@@ -157,8 +157,8 @@ h3 {
   box-shadow:none
 }
 .btn:hover {
-  background:#c88626;
-  color:#19180e;
+  background:var(--green);
+  color:#13200b;
   transform:translateY(-2px)
 }
 .btn.ghost {
@@ -167,8 +167,9 @@ h3 {
   border:1px solid #b7c1b5
 }
 .btn.ghost:hover {
-  background:#fff;
-  color:var(--ink)
+  background:var(--green);
+  color:#13200b;
+  border-color:var(--green)
 }
 .hero {
   min-height:680px;
