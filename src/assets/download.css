@@ -1,0 +1,250 @@
+    /* Layout reset + safe box model */
+    *, *::before, *::after { box-sizing: border-box; }
+    img { max-width: 100%; height: auto; }
+    html,body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: rgba(0,0,0,0.78);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ---------- shared page shell: header, nav, footer ---------- */
+    .ic-header {
+      position: relative;
+      z-index: 40;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 35px;
+    }
+
+    .ic-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ic-brand img { display: block; width: 132px; height: auto; }
+    .ic-brand .ic-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #3a3a3a;
+      letter-spacing: .02em;
+      font-size: 20px;
+    }
+
+    .ic-nav { display: flex; gap: 35px; align-items: center; }
+    .ic-nav a {
+      text-decoration: none;
+      color: #00000080;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .ic-nav a:hover, .ic-nav a.active { color: #8dc100; }
+
+    /* menu toggle: a real checkbox kept invisible over the burger, so the menu
+       opens without script and is still reachable by keyboard */
+    .ic-nav-toggle { display: none; }
+    .ic-burger { display: none; }
+
+    @media (max-width: 860px) {
+      .ic-header { padding: 10px 16px; flex-wrap: wrap; }
+      .ic-brand img { width: 108px; }
+      .ic-brand .ic-title { font-size: 17px; }
+
+      .ic-burger {
+        display: block;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #dd9933;
+        cursor: pointer;
+        flex: 0 0 44px;
+      }
+      .ic-burger span {
+        position: absolute;
+        left: 12px;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+      }
+      .ic-burger span:nth-child(1) { top: 16px; }
+      .ic-burger span:nth-child(2) { top: 21px; }
+      .ic-burger span:nth-child(3) { top: 26px; }
+
+      .ic-nav-toggle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .ic-nav-toggle:focus-visible + .ic-burger { outline: 2px solid #8dc100; outline-offset: 2px; }
+
+      .ic-nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+        margin-top: 10px;
+      }
+      .ic-nav-toggle:checked ~ .ic-nav { display: flex; }
+      .ic-nav a { width: 100%; padding: 12px 2px; font-size: 16px; }
+      .ic-nav a + a { border-top: 1px solid rgba(0, 0, 0, .06); }
+    }
+
+    .ic-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 20px;
+      flex-wrap: nowrap;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, .15);
+    }
+
+    .ic-footer .ic-copy { color: #ddd; font-size: 14px; line-height: 24px; white-space: nowrap; }
+    .ic-footer .ic-social { display: flex; gap: 20px; align-items: center; }
+    .ic-footer .ic-social a {
+      color: rgba(255, 255, 255, .75);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: color .14s ease;
+    }
+    .ic-footer .ic-social a:hover { color: #fff; }
+    .ic-footer .ic-social svg { display: block; }
+
+    @media (max-width: 520px) {
+      .ic-footer { padding: 10px 14px; }
+      .ic-footer .ic-copy { font-size: 12px; }
+      .ic-footer .ic-social { gap: 16px; }
+    }
+
+    /* MAIN: center content and constrain width so it doesn't float left */
+    main {
+      flex: 1 0 auto;
+      width: 100%;
+      display:flex;
+      justify-content:center;         /* center content column horizontally */
+      padding: 32px 16px 110px;      /* bottom padding reserves space for fixed footer */
+    }
+    .content {
+      width: 100%;
+      max-width: 1100px;             /* fits three build cards per row */
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.25rem;
+      margin: 0 0 26px;
+      text-transform:uppercase;
+      color: rgba(0,0,0,0.78);
+      letter-spacing:0.02em;
+    }
+
+    /* CARDS GRID
+       Desktop: 2 columns
+       Larger screens: grid will expand but keeps two columns
+       Mobile: single column
+    */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    /* Section heading above each group of builds */
+    .group-title {
+      text-align: left;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8dc100;
+      margin: 34px 0 14px;
+    }
+
+    .group-title:first-of-type { margin-top: 0; }
+
+    /* Card style */
+    .card {
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 28px 22px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+      transition: transform .18s ease, box-shadow .18s ease;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,0.08); }
+
+    /* Icon */
+    .card .icon {
+      width: 74px;
+      height: 74px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .card svg { width:100%; height:100%; display:block; }
+
+    .card h2 {
+      margin: 6px 0;
+      font-size: 1.05rem;
+      text-transform:uppercase;
+      color:#2f2f2f;
+      letter-spacing:0.02em;
+    }
+    .card p { margin: 6px 0 16px; font-size:0.95rem; color: rgba(0,0,0,0.6); }
+
+    .btn {
+      margin-top: auto;              /* push button to bottom for consistent card height */
+      display:inline-block;
+      background:#dd9933;
+      color:#fff;
+      text-decoration:none;
+      padding:10px 18px;
+      border-radius:6px;
+      font-weight:600;
+      transition: background .14s ease;
+    }
+    .btn:hover { background:#8dc100; color:#fff; }
+
+    .badge-btn { margin-top: auto; display:inline-block; }
+    .badge-btn img { height:44px; display:block; }
+    .badge-btn.disabled { opacity:.5; filter:grayscale(100%); pointer-events:none; }
+    /* Google's badge artwork has ~32% built-in transparent padding around the visible
+       logo, so its box must be sized well above the plain .btn height (~50px) for the
+       actual visible mark to match. */
+    .badge-btn.google-play img { height:74px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .cards { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .card { min-height: 180px; padding: 20px; }
+      .group-title { max-width: 520px; margin-left: auto; margin-right: auto; }
+    }

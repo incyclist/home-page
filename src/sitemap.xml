@@ -2,32 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://incyclist.com/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://incyclist.com/download/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://incyclist.com/faq/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://incyclist.com/about/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-09-27</lastmod>
   </url>
   <url>
     <loc>https://incyclist.com/privacy/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <lastmod>2026-09-27</lastmod>
   </url>
 </urlset>
