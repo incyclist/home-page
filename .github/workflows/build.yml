@@ -19,9 +19,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Docker Build and Push
+      env:
+        DOCKER_HUB_PUSH_PASSWORD: ${{ secrets.DOCKER_HUB_PUSH_PASSWORD }}
       run : |
-        docker build . -t docker.incyclist.com/incyclist/home-page:latest
-        docker push  docker.incyclist.com/incyclist/home-page:latest
+        docker build . -t docker-push.incyclist.com/incyclist/home-page:latest
+        docker login docker-push.incyclist.com -u ci-push -p "$DOCKER_HUB_PUSH_PASSWORD"
+        docker push  docker-push.incyclist.com/incyclist/home-page:latest
 
   deploy:
     runs-on: ubuntu-latest
