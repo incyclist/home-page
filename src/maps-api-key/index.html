@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="max-image-preview:large" />
+  <meta name="description" content="Step-by-step guide to creating a Google Maps API key and entering it in Incyclist to unlock Street View in Simulate mode and side views, and to help keep Incyclist free.">
+  <link rel="canonical" href="https://incyclist.com/maps-api-key/">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../content/uploads/2020/04/cropped-incyclist-icon-180x180.png">
+  <title>How to create a Google Maps API key for Street View – Incyclist</title>
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Incyclist">
+  <meta property="og:url" content="https://incyclist.com/maps-api-key/">
+  <meta property="og:title" content="How to create a Google Maps API key for Street View – Incyclist">
+  <meta property="og:description" content="Create your own Google Maps API key to unlock Street View in Simulate mode and side views, and help keep Incyclist free.">
+  <meta property="og:image" content="https://incyclist.com/assets/og-incyclist.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Maps API key for Street View – Incyclist">
+  <meta name="twitter:description" content="Create your own Google Maps API key to unlock Street View in Simulate mode and side views, and help keep Incyclist free.">
+  <meta name="twitter:image" content="https://incyclist.com/assets/og-incyclist.jpg">
+
+  <link rel="stylesheet" href="../assets/faq.css">
+<link rel="stylesheet" href="../assets/site.css?v=20260927-hover">
+</head>
+
+<body>
+  <a class="ic-skip" href="#main">Skip to content</a>
+  <header class="ic-header" id="top">
+    <a class="ic-brand" href="../" aria-label="Incyclist home"><img src="../content/uploads/2020/04/cropped-f855ee7c-b381-40a6-ab04-df48c7626f75_200x200.png" width="200" height="66" alt="Incyclist"></a>
+    <input class="ic-nav-toggle" type="checkbox" id="ic-nav-toggle" aria-label="Open menu">
+    <span class="ic-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    <nav class="ic-nav" aria-label="Main navigation"><a href="../">Home</a><a href="../#features">Features</a><a href="../about/">About</a><a href="../faq/">FAQ</a><a href="../privacy/">Privacy</a><a href="../download/" class="nav-download">Download</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="wrap">
+        <p class="eyebrow">Street View setup</p>
+        <h1>Create a Google Maps API key.</h1>
+      </div>
+    </section>
+
+    <section class="page-intro">
+      <div class="wrap">
+        <p class="lede">Street View and Satellite View run on Google Maps. By default Incyclist
+          uses its own Maps API key. This guide shows how to create your own key and enter it in
+          Incyclist. It takes about ten minutes.</p>
+
+        <h2>Why use your own key?</h2>
+        <ul>
+          <li><strong>More features.</strong> With the Incyclist key, Street View and Satellite
+            View are not available in Simulate mode, and side views are disabled. With your own
+            key, they are available.</li>
+          <li><strong>You keep Incyclist free.</strong> Incyclist pays for the map usage of
+            everyone who uses its key. If those costs become unmanageable, the feature might have
+            to be restricted or removed. Every rider who uses their own key reduces that risk.</li>
+        </ul>
+        <p><strong>Desktop only.</strong> Entering your own key is available in Incyclist for
+          Windows, macOS and Linux. The Android and iOS apps do not use this page.</p>
+
+        <h2>Before you start</h2>
+        <ul>
+          <li>You need a Google account.</li>
+          <li>Google requires a billing account for the Maps Platform, but normal individual use
+            stays within Google's free allowance, so you will not be charged.
+            <a href="#billing">Details</a></li>
+          <li>The Google Cloud console changes its look from time to time. The screenshots below
+            may differ slightly from what you see, but the steps stay the same.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap faq">
+
+        <article class="faq-item" id="step-1">
+          <h2>1. Open the Google Cloud console</h2>
+          <p>Go to <a href="https://console.cloud.google.com" target="_blank" rel="noopener">console.cloud.google.com</a>
+            and sign in with your Google account. Click on <strong>Create or select a project</strong>.</p>
+          <figure class="faq-shot">
+            <img src="img/step-1.jpg" alt="Google Cloud welcome page with the Create or select a project link highlighted" width="1000" height="453" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="faq-item" id="step-2">
+          <h2>2. Create a project</h2>
+          <p>Create a new project. The name is up to you &#8212; pick one you will recognise later,
+            or keep the suggested one. Click <strong>Create</strong>.</p>
+          <figure class="faq-shot">
+            <img src="img/step-2.jpg" alt="New Project form with the project name field highlighted" width="1000" height="456" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="faq-item" id="step-3">
+          <h2>3. Enable the Maps JavaScript API</h2>
+          <p>Make sure your new project is selected, then open <strong>APIs &amp; Services</strong>
+            and click <strong>Enable APIs and services</strong>.</p>
+          <figure class="faq-shot">
+            <img src="img/step-3.jpg" alt="APIs and Services page with the Enable APIs and services button highlighted" width="1000" height="407" loading="lazy" decoding="async">
+          </figure>
+          <p>In the API library, select <strong>Maps JavaScript API</strong>. This is the only API
+            Incyclist needs.</p>
+          <figure class="faq-shot">
+            <img src="img/step-4.jpg" alt="API library with the Maps JavaScript API card highlighted" width="1000" height="431" loading="lazy" decoding="async">
+          </figure>
+          <p>If Google asks you to accept the terms of service, type <em>Confirm</em> and click
+            <strong>Accept &amp; continue</strong>.</p>
+          <figure class="faq-shot">
+            <img src="img/step-5.jpg" alt="Terms of service dialog with Confirm typed in and Accept and continue highlighted" width="1000" height="431" loading="lazy" decoding="async">
+          </figure>
+          <p>Click <strong>Enable</strong>.</p>
+          <figure class="faq-shot">
+            <img src="img/step-6.jpg" alt="Maps JavaScript API product page with the Enable button highlighted" width="1000" height="432" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="faq-item" id="step-4">
+          <h2>4. Copy your key</h2>
+          <p>Google now generates your API key. <strong>Copy it right away</strong> and keep it
+            somewhere safe &#8212; the dialog is shown only once. (If you lose it, you can create a
+            new key under <em>Keys &amp; Credentials</em>.) Treat the key like a password and do not
+            share it.</p>
+          <figure class="faq-shot">
+            <img src="img/step-7.jpg" alt="Get Started on Google Maps Platform dialog showing the generated API key (hidden in this screenshot)" width="1000" height="431" loading="lazy" decoding="async">
+          </figure>
+          <p>Google then offers to restrict the key. You can click <strong>Maybe later</strong>
+            to continue.</p>
+          <figure class="faq-shot">
+            <img src="img/step-8.jpg" alt="Protect your API key dialog with Maybe later highlighted" width="1000" height="431" loading="lazy" decoding="async">
+          </figure>
+          <p>On the overview page, click <strong>Enable APIs</strong> if it is offered to finish the
+            setup.</p>
+          <figure class="faq-shot">
+            <img src="img/step-9.jpg" alt="Google Maps Platform overview with the Enable APIs button highlighted" width="1000" height="407" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <article class="faq-item" id="step-5">
+          <h2>5. Enter the key in Incyclist</h2>
+          <ol>
+            <li>Open the settings in Incyclist and go to the <strong>Ride</strong> section.</li>
+            <li>Paste your key into the <strong>Maps API Key</strong> field.</li>
+            <li><strong>Restart Incyclist.</strong> The key is only read at startup, so Street View
+              is not available until you have restarted the app.</li>
+          </ol>
+          <p>After the restart, Incyclist uses your key. Street View and Satellite View are then
+            available in Simulate mode, and side views are enabled.</p>
+        </article>
+
+        <article class="faq-item" id="billing">
+          <h2>Will I be charged?</h2>
+          <p><strong>For normal individual use, no.</strong> Google gives every account a free
+            monthly allowance for the Maps Platform. At the time of writing it is
+            <strong>5,000 Street View loads</strong> and <strong>10,000 Satellite View
+            loads</strong> per month.</p>
+          <p>Google counts usage per ride, not per minute: every time Incyclist starts the main view
+            (Street View or Satellite View) for a ride counts as one load. It does not matter how
+            long you ride.</p>
+          <p>If you switch on <strong>side views</strong>, each side view is loaded separately by
+            Google and counts as an additional load for that ride. A ride with side views therefore
+            uses a few loads instead of one. Even so, riding several times a day, every day of the
+            month, stays below the free allowance.</p>
+          <p>The key belongs to <strong>your</strong> Google account, so any usage above the
+            allowance would be billed by Google to you &#8212; Incyclist is not involved and does
+            not see your account. Google requires a billing account to be set up before the key
+            works, but that does not mean you pay anything while you stay within the allowance.</p>
+          <p>If you want to be completely sure, you can set a daily quota or a budget alert for the
+            project in the Google Cloud console. Google may change its prices and allowance over
+            time, so the current numbers are on the
+            <a href="https://mapsplatform.google.com/pricing/" target="_blank" rel="noopener">Google Maps Platform pricing page</a>.</p>
+        </article>
+
+        <article class="faq-item" id="restrict">
+          <h2>Should I restrict the key?</h2>
+          <p>It is optional. You can click <strong>Maybe later</strong> and add restrictions later
+            under <em>Keys &amp; Credentials</em> in the console.</p>
+          <p>Google offers two kinds of restriction, and only one of them suits Incyclist:</p>
+          <ul>
+            <li><strong>API restriction &#8212; recommended.</strong> Limit the key to the
+              <strong>Maps JavaScript API</strong>. The key then cannot be used for anything else if
+              it is ever leaked.</li>
+            <li><strong>Application restriction &#8212; do not use.</strong> Incyclist does not load
+              from a web server. The app runs from files bundled inside the desktop application, so
+              there is no website address that Google could match against. A &#8220;Websites&#8221;
+              (HTTP referrer) restriction would therefore block your own key, and Street View would
+              stop working. An IP address restriction is not practical either, because your address
+              changes. Leave the application restriction set to <strong>None</strong>.</li>
+          </ul>
+          <p>If Street View stops working after you changed a restriction, set the application
+            restriction back to <strong>None</strong> and restart Incyclist.</p>
+        </article>
+
+        <article class="faq-item" id="help">
+          <h2>Something not working?</h2>
+          <p>Check that the key was pasted without spaces, that you restarted Incyclist, and that the
+            Maps JavaScript API is enabled for the project the key belongs to. More questions are
+            answered in the <a href="../faq/#street-view-simulate">FAQ</a>, or
+            <a href="mailto:info@incyclist.com">send me an email</a>.</p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="ic-footer">
+    <div class="footer-grid">
+      <div><div class="footer-brand">Incyclist</div><p>Real roads, real rides, and the freedom to explore. Free and open source indoor cycling.</p></div>
+      <div><h2>Explore</h2><a href="../#features">Features</a><a href="../#mobile">On phone and tablet</a><a href="../#whats-new">What's new</a><a href="../#devices">Getting started</a></div>
+      <div><h2>Get started</h2><a href="../download/">All downloads</a><a href="../faq/">Help &amp; FAQ</a><a href="../assets/Incyclist%20Manual.pdf">User manual (PDF)</a><a href="https://www.paypal.com/paypalme/incyclist" target="_blank" rel="noopener">Donate via PayPal</a><a href="https://github.com/sponsors/incyclist" target="_blank" rel="noopener">GitHub Sponsors</a></div>
+      <div><h2>Connect</h2><a href="../about/">About the maker</a><a href="https://www.reddit.com/r/Incyclist/" target="_blank" rel="noopener">Incyclist on Reddit</a><a href="https://www.strava.com/clubs/1029407" target="_blank" rel="noopener">Strava club</a><a href="https://bsky.app/profile/incyclist.bsky.social" target="_blank" rel="noopener">Bluesky</a><a href="https://github.com/incyclist" target="_blank" rel="noopener">GitHub</a><a href="mailto:info@incyclist.com">Email</a><a href="../privacy/">Privacy</a></div>
+    </div><div class="footer-bottom"><span>© 2026 Incyclist. Made for the freedom of the ride.</span><a href="#top">Back to top ↑</a></div>
+  </footer>
+
+</body>
+
+</html>

@@ -45,7 +45,7 @@
         <h1>Indoor cycling questions, answered.</h1>
       </div>
     </section>
-    <section class="page-intro"><div class="wrap"><p class="eyebrow">Find your answer</p><h2>Get back to riding.</h2><p>Practical answers about setup, routes, videos, integrations and platform messages. Use the quick links below to jump directly to a topic.</p><nav class="faq-index" aria-label="FAQ topics"><a href="#first-ride">Your first ride ↗</a><a href="#compatibility">Trainer compatibility ↗</a><a href="#routes-and-workouts">Routes &amp; workouts ↗</a><a href="#linux">Linux setup ↗</a><a href="#own-video">Make your own video ↗</a><a href="#where-to-get-videos">Find ride videos ↗</a><a href="#strava">Strava upload ↗</a><a href="#windows-smartscreen">Windows warning ↗</a><a href="#mac-keychain">Mac keychain ↗</a></nav></div></section>
+    <section class="page-intro"><div class="wrap"><p class="eyebrow">Find your answer</p><h2>Get back to riding.</h2><p>Practical answers about setup, routes, videos, integrations and platform messages. Use the quick links below to jump directly to a topic.</p><nav class="faq-index" aria-label="FAQ topics"><a href="#first-ride">Your first ride ↗</a><a href="#compatibility">Trainer compatibility ↗</a><a href="#routes-and-workouts">Routes &amp; workouts ↗</a><a href="#street-view-simulate">Your own Maps API key ↗</a><a href="#linux">Linux setup ↗</a><a href="#own-video">Make your own video ↗</a><a href="#where-to-get-videos">Find ride videos ↗</a><a href="#strava">Strava upload ↗</a><a href="#windows-smartscreen">Windows warning ↗</a><a href="#mac-keychain">Mac keychain ↗</a></nav></div></section>
     <section>
       <div class="wrap faq">
 
@@ -63,6 +63,28 @@
         <article class="faq-item" id="routes-and-workouts">
           <h2>Can I use my own routes and structured workouts?</h2>
           <p>Yes. Import a GPX track or a route from Komoot and ride it in Street View, Satellite View or Map View. You can ride a built-in workout, import a Zwift .zwo file or sync your intervals.icu calendar over a video or route. Free ride, where you choose each turn as you go, is currently available on desktop.</p>
+        </article>
+
+        <article class="faq-item" id="street-view-simulate">
+          <h2>Why is Street View missing when I use Simulate, and why would I use my own Google Maps API key?</h2>
+          <p>Street View and Satellite View are provided by Google Maps, which requires an API
+            key. Incyclist uses its own key by default and pays for that usage itself. That has
+            limits:</p>
+          <ul>
+            <li>Street View and Satellite View are not available in Simulate mode when the
+              Incyclist key is used.</li>
+            <li>Side views are disabled when the Incyclist key is used.</li>
+          </ul>
+          <p>If you enter your own key (Settings &#8594; Ride, &#8220;Maps API Key&#8221;, then
+            restart the app), these restrictions do not apply. The usage is counted on your own
+            Google account, but Google's free monthly allowance (currently 5,000 Street View and
+            10,000 Satellite View loads) is far more than normal individual use needs, so you will
+            not be charged. (Every ride counts as one load for the main view, plus one more for
+            each side view you switch on.) You also help keep Incyclist free: the more riders use their own key, the
+            lower the costs Incyclist has to carry, and the less likely it becomes that the feature
+            has to be restricted or removed.</p>
+          <p>Step by step: <a href="../maps-api-key/">how to create a Google Maps API key</a>. A
+            user-supplied key is not yet possible in the Android and iOS apps.</p>
         </article>
 
         <article class="faq-item" id="linux">
