@@ -160,7 +160,7 @@
               can only add servers on the internet with https. Plain http is accepted only for
               servers on the rider&#8217;s own home network.</li>
             <li><strong>A list of your routes.</strong> A request to
-              <code>&lt;server address&gt;/?type=video</code> must answer with a JSON list of route
+              <code>&lt;server address&gt;?type=video</code> must answer with a JSON list of route
               descriptions, as in
               <a href="https://github.com/incyclist/services/blob/main/src/routes/base/api/types.ts"
                 target="_blank" rel="noopener"><code>RouteApiDescription</code></a>.</li>
@@ -172,7 +172,7 @@
             <li><strong>Your videos,</strong> downloadable or streamable from a web address that
               the route description points to.</li>
             <li><strong>Optional:</strong> GPX routes. A request to
-              <code>&lt;server address&gt;?private=false</code> may list them. A server without
+              <code>&lt;server address&gt;?type=route</code> may list them. A server without
               this request keeps working with its video routes.</li>
           </ul>
           <p>You do not need any particular software to run a server. Any web server that answers
