@@ -45,7 +45,7 @@
         <h1>Indoor cycling questions, answered.</h1>
       </div>
     </section>
-    <section class="page-intro"><div class="wrap"><p class="eyebrow">Find your answer</p><h2>Get back to riding.</h2><p>Practical answers about setup, routes, videos, integrations and platform messages. Use the quick links below to jump directly to a topic.</p><nav class="faq-index" aria-label="FAQ topics"><a href="#first-ride">Your first ride ↗</a><a href="#compatibility">Trainer compatibility ↗</a><a href="#routes-and-workouts">Routes &amp; workouts ↗</a><a href="#street-view-simulate">Your own Maps API key ↗</a><a href="#linux">Linux setup ↗</a><a href="#own-video">Make your own video ↗</a><a href="#where-to-get-videos">Find ride videos ↗</a><a href="#strava">Strava upload ↗</a><a href="#windows-smartscreen">Windows warning ↗</a><a href="#mac-keychain">Mac keychain ↗</a></nav></div></section>
+    <section class="page-intro"><div class="wrap"><p class="eyebrow">Find your answer</p><h2>Get back to riding.</h2><p>Practical answers about setup, routes, videos, integrations and platform messages. Use the quick links below to jump directly to a topic.</p><nav class="faq-index" aria-label="FAQ topics"><a href="#first-ride">Your first ride ↗</a><a href="#compatibility">Trainer compatibility ↗</a><a href="#routes-and-workouts">Routes &amp; workouts ↗</a><a href="#street-view-simulate">Your own Maps API key ↗</a><a href="#linux">Linux setup ↗</a><a href="#own-video">Make your own video ↗</a><a href="#where-to-get-videos">Find ride videos ↗</a><a href="#route-server">Share your routes ↗</a><a href="#strava">Strava upload ↗</a><a href="#windows-smartscreen">Windows warning ↗</a><a href="#mac-keychain">Mac keychain ↗</a></nav></div></section>
     <section>
       <div class="wrap faq">
 
@@ -144,6 +144,61 @@
             <a href="https://www.strava.com/clubs/1029407" target="_blank" rel="noopener">Incyclist
               Strava club</a>. If a link here is dead, or you publish videos yourself and would like
             to be listed, <a href="mailto:info@incyclist.com">let me know</a>.</p>
+        </article>
+
+        <article class="faq-item" id="route-server">
+          <h2>How can I share my routes with other riders? How do I set up a route server?</h2>
+          <p>A route server is a web service that lists your routes, mostly videos, and serves them
+            to Incyclist. Riders add its address once, in <strong>Settings &#8250; Routes</strong>
+            or with <strong>Import Routes &#8250; Add a route server</strong>, and your routes then
+            appear in their route list and update automatically. Your videos stay on your own
+            hosting. Incyclist does not host or curate them.</p>
+
+          <h3>What you need</h3>
+          <ul>
+            <li><strong>Web hosting over https.</strong> The server needs an https address. Riders
+              can only add servers on the internet with https. Plain http is accepted only for
+              servers on the rider&#8217;s own home network.</li>
+            <li><strong>A list of your routes.</strong> A request to
+              <code>&lt;server address&gt;?type=video</code> must answer with a JSON list of route
+              descriptions, as in
+              <a href="https://github.com/incyclist/services/blob/main/src/routes/base/api/types.ts"
+                target="_blank" rel="noopener"><code>RouteApiDescription</code></a>.</li>
+            <li><strong>The details of each route.</strong> A request to
+              <code>&lt;server address&gt;/&lt;route id&gt;</code> must answer with the route&#8217;s
+              details (GPX points, video mapping, and so on), as in
+              <a href="https://github.com/incyclist/services/blob/main/src/routes/base/api/types.ts"
+                target="_blank" rel="noopener"><code>RouteApiDetail</code></a>.</li>
+            <li><strong>Your videos,</strong> downloadable or streamable from a web address that
+              the route description points to.</li>
+            <li><strong>Optional:</strong> GPX routes. A request to
+              <code>&lt;server address&gt;?type=route</code> may list them. A server without
+              this request keeps working with its video routes.</li>
+          </ul>
+          <p>You do not need any particular software to run a server. Any web server that answers
+            these requests will do. Each route needs a stable, unique <code>id</code>. Increase the
+            route&#8217;s <code>version</code> whenever you change it, because Incyclist only reloads a
+            route&#8217;s details when the version goes up.</p>
+          <p>To try it out, add your server by its address in the app. The app checks it before
+            saving it and tells you if the address answers but is not a route server.</p>
+
+          <h3>How can my server be added to the list of known servers?</h3>
+          <p>Riders can add any server by its address, so you do not need to be listed. To make
+            adding easier for everyone, the app can also show a list of known servers that riders
+            add with one tap. To be considered,
+            <a href="mailto:info@incyclist.com?subject=Route%20server%20for%20the%20known%20list">send me an email</a>
+            with:</p>
+          <ul>
+            <li>the name riders will see (up to 24 letters, numbers, spaces or dashes),</li>
+            <li>the https address of your server,</li>
+            <li>one short line describing the content (about 40 characters, for example
+              &#8220;Alps &amp; Dolomites, 40+ climbs&#8221;),</li>
+            <li>optionally, your name or group as the operator.</li>
+          </ul>
+          <p class="note-small">I check that your server works with Incyclist before listing it.
+            Listing does not mean that Incyclist endorses or reviews the content, which comes from
+            its operator. The list is part of the app, so a new entry reaches riders with a later
+            app update, not immediately.</p>
         </article>
 
         <article class="faq-item" id="strava">
